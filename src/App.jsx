@@ -3,7 +3,7 @@ import './App.css'
 import AnimatedBox from './Components/AnimatedBox';
 import { Center, GizmoHelper, GizmoViewcube, OrbitControls, useHelper } from '@react-three/drei';
 import { useRef } from 'react';
-import LBuilding from './Components/LBuilding';
+import Taxi from './Components/Taxi';
 import Stars from './Components/Stars';
 import Planet from './Components/Planet';
 import Floor from './Components/Floor';
@@ -55,7 +55,7 @@ function App() {
 
           {/* <AnimatedBox/> */}
 
-          {/* <LBuilding/> */}
+          <Taxi/>
           <Stars/>
           {/* <Planet/> */}
         </Canvas>
