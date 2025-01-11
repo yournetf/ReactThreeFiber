@@ -63,8 +63,10 @@ function GrassSpace(){
     return(
         <>
             {/* Front Right Tree */}
-            <Reed position={[16.5, 0, 46]} scale={[2, 2, 2]}/>
             <Bush bushType={2} bushColor={1} position={[10, 1, 46]} scale={[2, 2, 2]}/>
+            <Reed position={[16.5, 0, 46]} scale={[2, 2, 2]}/>
+            <Reed position={[24, 0, 42]} scale={[2, 2, 2]}/>
+            <Bush bushType={2} bushColor={1} position={[29, 1, 37]} scale={[2, 2, 2]}/>
         </>
     );
 }
