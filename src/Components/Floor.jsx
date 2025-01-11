@@ -27,11 +27,7 @@ function Floor(){
                 <meshStandardMaterial color={'#d6d1c7'}/>
             </mesh>
 
-            {/* Hill */}
-            <mesh rotation={[-Math.PI, 0, 0]} position={[0, -20, 0]} scale={[1, 1, 1]} receiveShadow>
-                <sphereGeometry args={[32, 64, 32, 10, 8, 2, 2]}/>
-                <meshStandardMaterial/>
-            </mesh>
+            
 
 
         </>

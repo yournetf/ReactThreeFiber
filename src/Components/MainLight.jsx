@@ -10,10 +10,10 @@ function MainLight(){
           <spotLight 
             castShadow 
             ref={light}
-            intensity={15000}
+            intensity={20000}
             color={0xffffff} 
-            position={[-50, 20, 60]}
-            angle={1}
+            position={[-50, 50, 40]}
+            angle={0.8}
           />
           <directionalLight 
             position={[2, 5, 2]}

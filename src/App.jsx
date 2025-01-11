@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber';
 import './App.css'
 import AnimatedBox from './Components/AnimatedBox';
-import { GizmoHelper, GizmoViewcube, OrbitControls, useHelper } from '@react-three/drei';
+import { Center, GizmoHelper, GizmoViewcube, OrbitControls, useHelper } from '@react-three/drei';
 import { useRef } from 'react';
 import LBuilding from './Components/LBuilding';
 import Stars from './Components/Stars';
@@ -9,6 +9,9 @@ import Planet from './Components/Planet';
 import Floor from './Components/Floor';
 import MainLight from './Components/MainLight';
 import TreeSpace from './Components/TreeSpace';
+import FlowerSpace from './Components/FlowerSpace';
+import GrassSpace from './Components/GrassSpace';
+import CenterPiece from './Components/CenterPiece';
 
 function App() {
 
@@ -22,8 +25,12 @@ function App() {
         >
 
           <MainLight/>
-          <TreeSpace/>
+          
           <Floor/>
+          <CenterPiece/>
+          <TreeSpace/>
+          <FlowerSpace/>
+          <GrassSpace/>
 
           <GizmoHelper>
             <GizmoViewcube/>

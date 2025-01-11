@@ -16,9 +16,9 @@ function Stars(){
     const starComponents = [];
     for(let i = 0; i < 200; i++){
         const positionAry = [
-            (Math.random() - 0.5) * 100,
-            (Math.random() - 0.5) * 100,
-            (Math.random() - 0.5) * 100,
+            ((Math.random() - 0.5) * 100 + 0),
+            ((Math.random() - 0.5) * 100 + 0),
+            ((Math.random() - 0.5) * 100 + 0),
         ];
         starComponents.push(<Star key={i} position={positionAry}/>)
     }
