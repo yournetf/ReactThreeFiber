@@ -26,7 +26,7 @@ function AnimatedBox(){
     })
 
     return(
-        <mesh ref={boxRef}>
+        <mesh ref={boxRef} castShadow>
             <boxGeometry args={[2, 3, 2]}/>
             <meshToonMaterial color={color}/>
         </mesh>
