@@ -8,7 +8,7 @@ function Taxi(){
     const carRef = useRef();
     
     const radius = 34; 
-    const speed = 0.005; 
+    const speed = 0.004; 
     let angle = 30; 
 
     useFrame(() => {

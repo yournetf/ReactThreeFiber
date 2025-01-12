@@ -12,12 +12,15 @@ import TreeSpace from './Components/TreeSpace';
 import FlowerSpace from './Components/FlowerSpace';
 import GrassSpace from './Components/GrassSpace';
 import CenterPiece from './Components/CenterPiece';
+import HUD from './Components/HUD';
 
 function App() {
 
   return (
     <>
+      
       <div id='canvas-container'>
+        <HUD/>
         <Canvas 
           shadows
           style={{backgroundColor: '#090924'}}
@@ -37,10 +40,10 @@ function App() {
           </GizmoHelper>
 
           <OrbitControls
-            minPolarAngle={Math.PI / 2.5} 
-            maxPolarAngle={Math.PI / 2.5} 
+            minPolarAngle={Math.PI / 3} 
+            maxPolarAngle={Math.PI / 2.3} 
             rotateSpeed={0.25}
-            minDistance={30}
+            minDistance={60}
             maxDistance={100}
             enablePan={false}
           />

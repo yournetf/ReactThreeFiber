@@ -2,10 +2,26 @@
 body {
     margin: 0;
     overflow: hidden;
+    background-color: #04040e;
 }
 
 #canvas-container {
-  width: 100vw;
-  height: 100vh;
+  width: 97vw;
+  height: 97vh;
+  margin-left: 1.5vw;
+  margin-top: 0.5vh;
+  overflow: hidden;
+}
+
+#franksCity h2, #franksCity h3 {
+  margin: 0; 
+  line-height: 1; 
+  padding: 0; 
+}
+
+#franksCity {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
 }
   
