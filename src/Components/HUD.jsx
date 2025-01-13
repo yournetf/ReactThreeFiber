@@ -12,7 +12,7 @@ function HUD(){
                         <h3 style={{color: 'white'}}>City</h3>
                     </div>
                     <button id="hamburgerLogo">
-
+                        
                     </button>
                 </div>
             </div>

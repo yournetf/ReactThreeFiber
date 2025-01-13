@@ -24,11 +24,17 @@ function TreeSpace(){
 
     return(
         <>
+            {/* Front Left Tree */}
             <Tree position={[-20, 5, 43]} scale={[2, 2, 2]}/>
-            <Tree position={[40, 5, -24]} scale={[2, 2, 2]}/>
+            
+            {/* Front Right Tree */}
+            <Tree position={[20, 5, 43]} scale={[2, 2, 2]}/>
+
+            {/* Back Left Tree */}
             <Tree position={[-40, 5, -24]} scale={[2, 2, 2]}/>
-            <Tree position={[20, 5, 43]} scale={[2, 2, 2]}/>
-            <Tree position={[20, 5, 43]} scale={[2, 2, 2]}/>
+
+            {/* Back Right Tree */}
+            <Tree position={[40, 5, -24]} scale={[2, 2, 2]}/>            
         </>
     );
 

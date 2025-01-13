@@ -73,6 +73,18 @@ function GrassSpace(){
             <Reed position={[-16.5, 0, 46]} scale={[2, 2, 2]}/>
             <Reed position={[-24, 0, 42]} scale={[2, 2, 2]}/>
             <Bush bushType={2} bushColor={1} position={[-29, 1, 37]} scale={[2, 2, 2]}/>
+
+            {/* Back Right Tree */}
+            <Bush bushType={1} bushColor={1} position={[45.5, 1, -14]} scale={[2, 2, 2]}/>
+            <Reed position={[39.5, 0, -28]} scale={[2, 2, 2]}/>
+            <Reed position={[43.5, 0, -22]} scale={[2, 2, 2]}/>
+            <Bush bushType={1} bushColor={1} position={[33, 1, -34]} scale={[2, 2, 2]}/>
+
+            {/* Back Left Tree */}
+            <Bush bushType={1} bushColor={1} position={[-45.5, 1, -14]} scale={[2, 2, 2]}/>
+            <Reed position={[-39.5, 0, -28]} scale={[2, 2, 2]}/>
+            <Reed position={[-43.5, 0, -22]} scale={[2, 2, 2]}/>
+            <Bush bushType={1} bushColor={1} position={[-33, 1, -34]} scale={[2, 2, 2]}/>
         </>
     );
 }

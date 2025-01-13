@@ -38,10 +38,16 @@ function FlowerSpace(){
             <Flower flowerType={3} position={[-14, 0, 46]}/>
             
             {/* Back Left Tree */}
-            <Flower flowerType={3} position={[-40, 0, -26]}/>
-
+            <Flower flowerType={3} position={[-37, 0, -28]}/>
+            <Flower flowerType={4} position={[-42, 0, -20]}/>
+            <Flower flowerType={5} position={[-37, 0, -32]}/>
+            <Flower flowerType={1} position={[-45, 0, -18]}/>
+            
             {/* Back Right Tree */}
-            <Flower flowerType={5} position={[40, 0, -26]}/>
+            <Flower flowerType={3} position={[37, 0, -28]}/>
+            <Flower flowerType={4} position={[42, 0, -20]}/>
+            <Flower flowerType={5} position={[37, 0, -32]}/>
+            <Flower flowerType={1} position={[45, 0, -18]}/>
         </>
     );
 }
