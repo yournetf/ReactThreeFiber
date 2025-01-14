@@ -3,6 +3,7 @@ import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from 'three';
+import YellowPantsWoman from "./YellowPantsWoman";
 
 function PeopleSpace(){
     // Load FBX Model
@@ -36,6 +37,7 @@ function PeopleSpace(){
 
     return(
         <>
+            <YellowPantsWoman/>
             <primitive object={jumpingModel} position={[0, 0, 50]} scale={[0.1, 0.1, 0.1]}/>
         </>
     );
