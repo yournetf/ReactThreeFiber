@@ -5,6 +5,7 @@ import { useFrame } from "@react-three/fiber";
 import * as THREE from 'three';
 import YellowPantsWoman from "./YellowPantsWoman";
 import PurplePantsWoman from "./PurplePantsWoman";
+import BrownPantsMan from "./BrownPantsMan";
 
 function PeopleSpace(){
     // Load FBX Model
@@ -40,6 +41,7 @@ function PeopleSpace(){
         <>
             <YellowPantsWoman/>
             <PurplePantsWoman/>
+            <BrownPantsMan/>
             <primitive object={jumpingModel} position={[0, 0, 50]} scale={[0.1, 0.1, 0.1]}/>
         </>
     );
