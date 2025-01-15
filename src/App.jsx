@@ -16,6 +16,7 @@ import PicnicSpace from './Components/PicnicSpace';
 import InnerSidewalkSpace from './Components/InnerSidewalkSpace';
 import PeopleSpace from './Components/PeopleSpace';
 import HUD from './Components/HUD';
+import BenchSpace from './Components/BenchSpace';
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
           <PicnicSpace/>
           <InnerSidewalkSpace/>
           <PeopleSpace/>
+          <BenchSpace/>
 
           <GizmoHelper>
             <GizmoViewcube/>
