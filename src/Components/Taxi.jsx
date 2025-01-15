@@ -14,8 +14,8 @@ function Taxi(){
     useFrame(() => {
         if (carRef.current) {
             angle -= speed;
-            carRef.current.position.x = radius * Math.cos(angle); 
-            carRef.current.position.z = radius * Math.sin(angle); 
+            carRef.current.position.x = (radius * Math.cos(angle)); 
+            carRef.current.position.z = (radius * Math.sin(angle)); 
             
             carRef.current.rotation.y = -angle + -Math.PI;
         }

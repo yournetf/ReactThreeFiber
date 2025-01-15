@@ -7,7 +7,7 @@ function MainLight(){
     useHelper(light, SpotLightHelper, 'white');
     return (
         <>
-          <spotLight 
+          {/* <spotLight 
             castShadow 
             ref={light}
             intensity={20000}
@@ -17,7 +17,7 @@ function MainLight(){
           />
           <directionalLight 
             position={[2, 5, 2]}
-          />
+          /> */}
           
         </>
     );
