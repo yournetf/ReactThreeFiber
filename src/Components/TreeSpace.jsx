@@ -9,11 +9,12 @@ function Tree({ position, scale }){
     clonedTree.traverse((child) => {
         if (child.isMesh) {
             child.castShadow = true;
+            child.receiveShadow = true;
         }
     });
     return(
         <>
-            <primitive object={clonedTree} position={position} scale={scale} castShadow/>
+            <primitive object={clonedTree} position={position} scale={scale} castShadow receiveShadow/>
         </>
     );
 };

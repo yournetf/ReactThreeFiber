@@ -8,6 +8,7 @@ import Stars from './Components/Stars';
 import Planet from './Components/Planet';
 import Floor from './Components/Floor';
 import MainLight from './Components/MainLight';
+import SubLight from './Components/SubLight';
 import TreeSpace from './Components/TreeSpace';
 import FlowerSpace from './Components/FlowerSpace';
 import GrassSpace from './Components/GrassSpace';
@@ -32,7 +33,7 @@ function App() {
         >
 
           <MainLight/>
-          
+          <SubLight/>
           <Floor/>
           <CenterPiece/>
           <TreeSpace/>
