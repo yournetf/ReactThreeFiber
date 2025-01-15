@@ -22,10 +22,15 @@ function Bench({ position, scale, rotation }){
 
 function BenchSpace(){
     return(
-        <>
-            <Bench position={[0, 0, -47]} scale={[0.04, 0.04, 0.04]} rotation={[0, -Math.PI/2, 0]}/>
-            <Bench position={[-15, 0, -47]} scale={[0.04, 0.04, 0.04]} rotation={[0, -Math.PI/2, 0]}/>
-            <Bench position={[15, 0, -47]} scale={[0.04, 0.04, 0.04]} rotation={[0, -Math.PI/2, 0]}/>
+        <>  
+            {/* Right Bench */}
+            <Bench position={[15, 0, -45]} scale={[0.04, 0.04, 0.04]} rotation={[0, -Math.PI/1.65, 0]}/>
+            
+            {/* Middle Bench */}
+            <Bench position={[0, 0, -47.5]} scale={[0.04, 0.04, 0.04]} rotation={[0, -Math.PI/2, 0]}/>
+            
+            {/* Left Bench */}
+            <Bench position={[-15, 0, -45]} scale={[0.04, 0.04, 0.04]} rotation={[0, -Math.PI/2.5, 0]}/>
         </>
     );
 }
