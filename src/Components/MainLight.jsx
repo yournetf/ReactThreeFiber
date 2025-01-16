@@ -1,24 +1,40 @@
-import { useRef } from "react";
+import { useRef, useContext } from "react";
 import { useHelper } from "@react-three/drei";
 import { SpotLightHelper } from "three";
+import { DarkmodeContext } from "../App";
+
 function MainLight(){
     const light = useRef();
-    const light2 = useRef();
     useHelper(light, SpotLightHelper, 'white');
+    
+    const {darkMode, setDarkMode} = useContext(DarkmodeContext)
     return (
         <>
-          {/* <spotLight 
+        {darkMode === false ? 
+        
+        <>
+          
+          <spotLight 
             castShadow 
             ref={light}
-            intensity={20000}
+            intensity={10000}
             color={0xffffff} 
             position={[-50, 50, 40]}
             angle={0.8}
           />
           <directionalLight 
             position={[2, 5, 2]}
-          /> */}
-          
+          />
+
+        </>
+        
+        :
+        
+        <>
+          {/* Turn Lights Off */}
+        </>
+        
+        }
         </>
     );
 }

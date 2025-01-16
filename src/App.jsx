@@ -2,7 +2,7 @@ import { Canvas } from '@react-three/fiber';
 import './App.css'
 import AnimatedBox from './Components/AnimatedBox';
 import { Center, GizmoHelper, GizmoViewcube, OrbitControls, useHelper } from '@react-three/drei';
-import { useRef } from 'react';
+import { useRef, useContext, useState, createContext } from 'react';
 import Taxi from './Components/Taxi';
 import Stars from './Components/Stars';
 import Planet from './Components/Planet';
@@ -19,11 +19,14 @@ import PeopleSpace from './Components/PeopleSpace';
 import HUD from './Components/HUD';
 import BenchSpace from './Components/BenchSpace';
 
-function App() {
+export const DarkmodeContext = createContext();
 
+function App() {
+  const [darkMode, setDarkMode] = useState(false);
+  
   return (
     <>
-      
+    <DarkmodeContext.Provider value={{darkMode, setDarkMode}}>
       <div id='canvas-container'>
         <HUD/>
         <Canvas 
@@ -57,8 +60,8 @@ function App() {
             enablePan={false}
           />
 
-          <axesHelper args={[20]} />
-          <gridHelper args={[100, 50]}/>
+          {/* <axesHelper args={[20]} />
+          <gridHelper args={[100, 50]}/> */}
 
           {/* <mesh castShadow position={[1, 1, 1]}>
             <torusKnotGeometry args={[1.3, 0.3, 256, 256]}/>
@@ -72,6 +75,8 @@ function App() {
           {/* <Planet/> */}
         </Canvas>
       </div>
+    </DarkmodeContext.Provider>
+            
     </>
   )
 }

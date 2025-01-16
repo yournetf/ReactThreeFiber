@@ -1,6 +1,20 @@
 import '../Styles/HUD.css';
+import { DarkmodeContext } from '../App';
+import { useContext } from 'react';
 
 function HUD(){
+    const {darkMode, setDarkMode} = useContext(DarkmodeContext);
+
+    const handleDarkModeButton = () => {
+        if(darkMode === false){
+            setDarkMode(true);
+        }
+        else if(darkMode === true){
+            setDarkMode(false);
+        }
+        
+    }
+
     return(
         <>
             <div id="HUD">
@@ -13,6 +27,9 @@ function HUD(){
                     </div>
                     <button id="hamburgerLogo">
                         
+                    </button>
+                    <button id='darkModeButton' onClick={handleDarkModeButton}>
+                        dark mode
                     </button>
                 </div>
             </div>
