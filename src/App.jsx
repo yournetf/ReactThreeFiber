@@ -18,6 +18,7 @@ import InnerSidewalkSpace from './Components/InnerSidewalkSpace';
 import PeopleSpace from './Components/PeopleSpace';
 import HUD from './Components/HUD';
 import BenchSpace from './Components/BenchSpace';
+import AnimalSpace from './Components/AnimalSpace';
 
 export const DarkmodeContext = createContext();
 
@@ -46,6 +47,7 @@ function App() {
           <InnerSidewalkSpace/>
           <PeopleSpace/>
           <BenchSpace/>
+          <AnimalSpace/>
 
           <GizmoHelper>
             <GizmoViewcube/>
