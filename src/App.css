@@ -11,6 +11,11 @@ body {
   margin-left: 1.5vw;
   margin-top: 0.5vh;
   overflow: hidden;
+  cursor: grab;
+}
+
+#canvas-container:active{
+  cursor: grabbing;
 }
 
 #franksCity h2, #franksCity h3 {

@@ -6,6 +6,7 @@ import * as THREE from 'three';
 import YellowPantsWoman from "./YellowPantsWoman";
 import PurplePantsWoman from "./PurplePantsWoman";
 import BrownPantsMan from "./BrownPantsMan";
+import BluePantsWoman from "./BluePantsWoman";
 
 function PeopleSpace(){
 
@@ -14,6 +15,7 @@ function PeopleSpace(){
             <YellowPantsWoman/>
             <PurplePantsWoman/>
             <BrownPantsMan/>
+            <BluePantsWoman/>
         </>
     );
 }
