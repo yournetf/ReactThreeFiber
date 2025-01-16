@@ -1,9 +1,10 @@
 import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { useMemo, useRef } from "react";
+import { useContext, useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useHelper } from "@react-three/drei";
 import { PointLightHelper } from "three";
+import { DarkmodeContext } from "../App";
 
 
 function ParkLight({position, scale}){
@@ -115,10 +116,15 @@ function CarLight(){
 }
 
 function SubLight(){
+    const {darkMode, setDarkMode} = useContext(DarkmodeContext);
     
     return(
         <>
-            <CarLight/>
+            {darkMode === false ?
+                <></>
+                :
+                <CarLight/>    
+            }
             
             <ParkLight position={[-26, 0,-40]} scale={[0.055, 0.055, 0.055]}/>
             <ParkLight position={[26, 0,-40]} scale={[0.055, 0.055, 0.055]}/>

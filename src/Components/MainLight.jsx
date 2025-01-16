@@ -5,7 +5,7 @@ import { DarkmodeContext } from "../App";
 
 function MainLight(){
     const light = useRef();
-    useHelper(light, SpotLightHelper, 'white');
+    // useHelper(light, SpotLightHelper, 'white');
     
     const {darkMode, setDarkMode} = useContext(DarkmodeContext)
     return (

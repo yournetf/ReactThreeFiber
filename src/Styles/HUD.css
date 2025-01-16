@@ -17,3 +17,7 @@
     position: absolute;
     right: 20px;
 }
+
+#darkModeButton:hover{
+    background-color: rgb(0, 0, 96);
+}

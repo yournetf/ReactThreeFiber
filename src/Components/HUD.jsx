@@ -28,9 +28,18 @@ function HUD(){
                     <button id="hamburgerLogo">
                         
                     </button>
-                    <button id='darkModeButton' onClick={handleDarkModeButton}>
-                        dark mode
-                    </button>
+                    {darkMode === false ? 
+                        <button id='darkModeButton' onClick={handleDarkModeButton}>
+                            🌙
+                        </button>
+                        :
+                        <button id='darkModeButton' onClick={handleDarkModeButton}>
+                        🌞
+                        </button>
+                    }
+                    
+                    
+
                 </div>
             </div>
         </>
