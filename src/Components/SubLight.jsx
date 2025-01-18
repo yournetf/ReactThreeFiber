@@ -123,7 +123,20 @@ function SubLight(){
             {darkMode === false ?
                 <></>
                 :
-                <CarLight/>    
+                <>
+                    // Light in front/behind of the taxi.
+                    <CarLight/>    
+                    // Light on the empire state tip.
+                    <pointLight
+                        color={0xff0000}
+                        intensity={100} 
+                        position={[0, 30, 0]} 
+                    />
+                    <mesh position={[-0.1, 36, 0.2]}>
+                        <boxGeometry args={[0.4, 0.4, 0.4]}/>
+                        <meshStandardMaterial color={0x000000} emissive={0x612410} emissiveIntensity={3}/>
+                    </mesh>
+                </>
             }
             
             <ParkLight position={[-26, 0,-40]} scale={[0.055, 0.055, 0.055]}/>
