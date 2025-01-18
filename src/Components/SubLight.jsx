@@ -126,6 +126,7 @@ function SubLight(){
                 <>
                     // Light in front/behind of the taxi.
                     <CarLight/>    
+                    
                     // Light on the empire state tip.
                     <pointLight
                         color={0xff0000}
@@ -136,6 +137,17 @@ function SubLight(){
                         <boxGeometry args={[0.4, 0.4, 0.4]}/>
                         <meshStandardMaterial color={0x000000} emissive={0x612410} emissiveIntensity={3}/>
                     </mesh>
+
+                    // Light for picnic setting.
+                    <mesh position={[-43, 0, 22]}>
+                        <boxGeometry args={[0.4, 0.4, 0.4]}/>
+                        <meshStandardMaterial color={0x000000} emissive={0x612410} emissiveIntensity={3}/>
+                    </mesh>
+                    <pointLight
+                        color={0xff0000}
+                        intensity={2}
+                        position={[-47, 1, 0]}
+                    />
                 </>
             }
             
