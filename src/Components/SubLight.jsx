@@ -141,7 +141,7 @@ function SubLight(){
                     // Light for picnic setting.
                     <mesh position={[-43, 0, 22]}>
                         <boxGeometry args={[0.4, 0.4, 0.4]}/>
-                        <meshStandardMaterial color={0x000000} emissive={0x612410} emissiveIntensity={3}/>
+                        <meshStandardMaterial color={0xbf9522} emissive={0x612410} emissiveIntensity={3}/>
                     </mesh>
                     <pointLight
                         color={0xff0000}
