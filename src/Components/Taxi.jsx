@@ -1,6 +1,7 @@
 import { useFrame, useLoader } from '@react-three/fiber';
 import { useRef } from 'react';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import * as THREE from 'three';
 
 function Taxi(){
     
@@ -9,15 +10,19 @@ function Taxi(){
     
     const radius = 34; 
     const speed = 0.004; 
-    let angle = 30; 
+    const angleRef = useRef(-30); // Start angle
+    const positionRef = useRef(new THREE.Vector3(0, 0, 0)); // Store the position
 
     useFrame(() => {
         if (carRef.current) {
-            angle -= speed;
-            carRef.current.position.x = (radius * Math.cos(angle)); 
-            carRef.current.position.z = (radius * Math.sin(angle)); 
+            angleRef.current -= speed;
+            const x = radius * Math.cos(angleRef.current);
+            const z = radius * Math.sin(angleRef.current);
             
-            carRef.current.rotation.y = -angle + -Math.PI;
+            carRef.current.position.set(x, 0, z); // Set the new position
+            positionRef.current.set(x, 0, z);
+            
+            carRef.current.rotation.y = -angleRef.current + -Math.PI;
         }
     });
 

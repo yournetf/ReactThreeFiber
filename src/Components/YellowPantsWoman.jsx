@@ -33,18 +33,24 @@ function YellowPantsWoman(){
     const modelRef = useRef();
     const radius = 27.75; 
     const speed = 0.0025; 
-    let angle = -30; 
+    const angleRef = useRef(-30); // Start angle
+    const positionRef = useRef(new THREE.Vector3(0, 0, 0)); // Store the position
+
     useFrame((_, delta) => {
         mixer.current?.update(delta);
-        //Manage rotation.
+
         if (modelRef.current) {
-            angle += speed;
-            modelRef.current.position.x = radius * Math.cos(angle); 
-            modelRef.current.position.z = radius * Math.sin(angle); 
-            
-            modelRef.current.rotation.y = -angle;
+            angleRef.current += speed;
+            const x = radius * Math.cos(angleRef.current);
+            const z = radius * Math.sin(angleRef.current);
+
+            modelRef.current.position.set(x, 0, z); // Set the new position
+            positionRef.current.set(x, 0, z);
+
+            modelRef.current.rotation.y = -angleRef.current; // Rotate to face movement direction
         }
     });
+
     
     return(
         <>

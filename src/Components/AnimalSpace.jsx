@@ -78,7 +78,7 @@ function Dog(){
 function AnimalSpace(){
     return(
         <>
-            <Dog/>
+            {/* <Dog/> */}
         </>
     );
 }
