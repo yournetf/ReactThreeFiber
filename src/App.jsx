@@ -17,6 +17,7 @@ import BenchSpace from "./Components/BenchSpace";
 import AnimalSpace from "./Components/AnimalSpace";
 import Taxi from "./Components/Taxi";
 import Stars from "./Components/Stars";
+import LoadingScreen from "./Components/LoadingScreen";
 
 //Context for dark mode.
 export const DarkmodeContext = createContext();
@@ -24,7 +25,14 @@ export const DarkmodeContext = createContext();
 //Context for azimuthal angle.
 export const RotationContext = createContext();
 
+//Context to check if city is loaded.
+export const LoadedContext = createContext();
+
 function App() {
+  //State to check if the enter button has been clicked and should be dismissed.
+  const [enterClicked, setEnterClicked] = useState(false);
+
+  //State to check if dark mode has been selected.
   const [darkMode, setDarkMode] = useState(false);
 
   //Stores the rotation of the scene.
@@ -52,7 +60,7 @@ function App() {
           controls.removeEventListener("change", updateAzimuthalAngle);
         };
       } else {
-        console.log("Waiting for OrbitControls ref...");
+        // console.log("Waiting for OrbitControls ref...");
       }
     }, 100);
   
@@ -62,6 +70,8 @@ function App() {
   
 
   return (
+    <>
+    {enterClicked ? 
     <DarkmodeContext.Provider value={{ darkMode, setDarkMode }}>
       <RotationContext.Provider value={azimuthalAngle}>
         <div id="canvas-container">
@@ -104,6 +114,12 @@ function App() {
         </div>
       </RotationContext.Provider>
     </DarkmodeContext.Provider>
+    :
+    <LoadingScreen enterClicked={enterClicked} setEnterClicked={setEnterClicked}/>  
+  }
+    </>
+    
+    
   );
 }
 
