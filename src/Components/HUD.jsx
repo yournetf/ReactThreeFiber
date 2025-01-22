@@ -48,9 +48,16 @@ function HUD(){
                         <a href="/AWS_Course_Completion_Certificate.pdf" target='blank'>
                             <i id='gitIcon' className={'fa fa-certificate'}/>
                         </a>
-                        <a href="mailto:frankyournet@gmail.com" target='blank'>
-                            <i id='gitIcon' className={'fa fa-envelope-square'}/>
+                        
+                        <a target='blank' onClick={(e) => {
+                            if (!navigator.mailto) {
+                                e.preventDefault();
+                                alert("It seems you don't have an email client configured. Please email me at: FrankYournet@gmail.com !" );
+                            }
+                        }}>
+                            <i id='gitIcon' className="fa fa-envelope-square"></i>
                         </a>
+
                 </div>
             </div>
         </>
