@@ -29,6 +29,9 @@ export const RotationContext = createContext();
 export const LoadedContext = createContext();
 
 function App() {
+  //State to check if the components in the canvas have rendered.
+  const [isLoading, setIsLoading] = useState(true);
+
   //State to check if the enter button has been clicked and should be dismissed.
   const [enterClicked, setEnterClicked] = useState(false);
 
@@ -55,7 +58,7 @@ function App() {
         };
   
         controls.addEventListener("change", updateAzimuthalAngle);
-  
+        setIsLoading(false);
         return () => {
           controls.removeEventListener("change", updateAzimuthalAngle);
         };
@@ -71,7 +74,7 @@ function App() {
 
   return (
     <>
-    {enterClicked ? 
+    {!enterClicked && (<LoadingScreen enterClicked={enterClicked} setEnterClicked={setEnterClicked} isLoading={isLoading}/> )}
     <DarkmodeContext.Provider value={{ darkMode, setDarkMode }}>
       <RotationContext.Provider value={azimuthalAngle}>
         <div id="canvas-container">
@@ -114,9 +117,7 @@ function App() {
         </div>
       </RotationContext.Provider>
     </DarkmodeContext.Provider>
-    :
-    <LoadingScreen enterClicked={enterClicked} setEnterClicked={setEnterClicked}/>  
-  }
+  
     </>
     
     
