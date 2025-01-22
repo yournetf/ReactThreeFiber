@@ -4,6 +4,7 @@
     z-index: 1000;
     width: 97vw;
     height: 97vh;
+    pointer-events: none;
 }
 
 #topBar{
@@ -56,9 +57,5 @@
     color: white;
     font-size: 48px;
     cursor: pointer;
-    pointer-events: all;
-}
-
-#sideBar a{
     pointer-events: all;
 }
