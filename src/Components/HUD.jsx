@@ -48,7 +48,9 @@ function HUD(){
                         <a href="/AWS_Course_Completion_Certificate.pdf" target='blank'>
                             <i id='gitIcon' className={'fa fa-certificate'}/>
                         </a>
-                        
+                        <a href="mailto:frankyournet@gmail.com" target='blank'>
+                            <i id='gitIcon' className={'fa fa-envelope-square'}/>
+                        </a>
                 </div>
             </div>
         </>
