@@ -90,3 +90,30 @@
     }
 }
 
+@media only screen and (max-width: 600px) {
+    #loadingContents{
+        position: absolute;
+        width: 90%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+        justify-content: space-between;
+    }
+    #welcomeText{
+        font-size: 64px;
+        text-align: left;
+    }
+    #introText{
+        font-size: 20px;
+    }
+    #loadingButton{
+        margin-top: 30px;
+    }
+    #enterButton{
+        margin-top: 80px;
+    }
+}
+

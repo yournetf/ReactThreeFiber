@@ -1,8 +1,12 @@
-/* App.css */
+html {
+  overflow: hidden;
+}
+
 body {
     margin: 0;
     overflow: hidden;
     background-color: #04040e;
+    overflow: hidden;
 }
 
 #canvas-container {
@@ -12,6 +16,10 @@ body {
   margin-top: 0.5vh;
   overflow: hidden;
   cursor: grab;
+}
+
+#invisible{
+  visibility: hidden;
 }
 
 #canvas-container:active{

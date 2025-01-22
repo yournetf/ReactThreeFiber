@@ -59,3 +59,28 @@
     cursor: pointer;
     pointer-events: all;
 }
+
+@media only screen and (max-width: 600px) {
+    #sideBar{
+        margin-left: 0;
+        position: fixed;
+        bottom: 1.5vh;
+        left: 1.5vw;
+        z-index: 20;
+        height: 50px;
+        width: 97.5vw;
+        background-color: rgba(208, 208, 208, 0.186);
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;  /* Change to row for horizontal layout */
+        justify-content: space-evenly;  /* Spacing icons evenly across the bar */
+        align-items: center;
+        padding-top: 5px;
+        padding-bottom: 10px;  /* Padding to give some space from the bottom */
+    }
+    #topBar{
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

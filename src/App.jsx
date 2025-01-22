@@ -77,7 +77,7 @@ function App() {
     {!enterClicked && (<LoadingScreen enterClicked={enterClicked} setEnterClicked={setEnterClicked} isLoading={isLoading}/> )}
     <DarkmodeContext.Provider value={{ darkMode, setDarkMode }}>
       <RotationContext.Provider value={azimuthalAngle}>
-        <div id="canvas-container">
+        <div id={enterClicked ? "canvas-container" : "invisible"}>
           <HUD />
           <Canvas
             shadows
