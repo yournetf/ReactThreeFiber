@@ -42,7 +42,7 @@ function App() {
   
         const updateAzimuthalAngle = () => {
           const angle = controls.getAzimuthalAngle();
-          console.log("Azimuthal Angle Changed:", angle);
+          // console.log("Azimuthal Angle Changed:", angle);
           setAzimuthalAngle(angle);
         };
   
@@ -58,11 +58,6 @@ function App() {
   
     return () => clearInterval(interval);
   }, []);
-
-  //Checks to see how much the page has rotated.
-  // useEffect(()=> {
-  //   console.log(azimuthalAngle);
-  // }, [azimuthalAngle]);
 
   
 
@@ -97,7 +92,7 @@ function App() {
               ref={orbitControlsRef}
               minPolarAngle={Math.PI / 3}
               maxPolarAngle={Math.PI / 2.3}
-              rotateSpeed={0.25}
+              rotateSpeed={0.2}
               minDistance={60}
               maxDistance={100}
               enablePan={false}
