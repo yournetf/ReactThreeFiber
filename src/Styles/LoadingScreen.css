@@ -65,6 +65,7 @@
     align-items: center;
     justify-items: center;
     max-width: 1080px;
+    cursor: default;
 }
 
 #spinner {

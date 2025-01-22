@@ -25,9 +25,7 @@ function HUD(){
                         <h2 style={{color: 'white'}}>Frank's</h2>
                         <h3 style={{color: 'white'}}>City</h3>
                     </div>
-                    <button id="hamburgerLogo">
-                        
-                    </button>
+                    
                     {darkMode === false ? 
                         <button id='darkModeButton' onClick={handleDarkModeButton}>
                             🌙

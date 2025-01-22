@@ -9,7 +9,7 @@ function LoadingScreen({enterClicked, setEnterClicked, isLoading}){
                     <h1 id='welcomeText'>WELCOME TO MY CITY!</h1>
                     <h3 id='introText'>I'm Frank, a Computer Science Graduate and an aspiring Software Engineer, who is determined to bring surreal experiences to people all around the world.</h3>
                     {isLoading ? 
-                        <button id='loadingButton' onClick={()=> {setEnterClicked(true)}}>
+                        <button id='loadingButton' disabled={true}>
                             LOADING...
                             <i id='spinner'></i>
                         </button>
