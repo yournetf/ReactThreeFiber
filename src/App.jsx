@@ -97,15 +97,15 @@ function App() {
             <BenchSpace />
             <AnimalSpace />
 
-            <GizmoHelper>
+            {/* <GizmoHelper>
               <GizmoViewcube />
-            </GizmoHelper>
+            </GizmoHelper> */}
 
             <OrbitControls
               ref={orbitControlsRef}
               minPolarAngle={Math.PI / 3}
               maxPolarAngle={Math.PI / 2.3}
-              rotateSpeed={0.2}
+              rotateSpeed={0.15}
               minDistance={60}
               maxDistance={100}
               enablePan={false}

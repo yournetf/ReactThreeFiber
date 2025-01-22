@@ -1,5 +1,14 @@
 
+#HUD{
+    position: absolute;
+    z-index: 1000;
+    width: 97vw;
+    height: 97vh;
+    pointer-events: none;
+}
+
 #topBar{
+    position: relative;
     width: 100%;
     height: 60px;
     align-items: center;
@@ -21,8 +30,31 @@
 #darkModeButton{
     right: 20px;
     border-radius: 20px;
+    pointer-events: all;
 }
 
 #darkModeButton:hover{
     background-color: rgb(0, 0, 96);
+}
+
+#sideBar{
+    margin-top: 6%;
+    margin-left: calc(97vw - 60px);
+    z-index: 20;
+    height: 500px;
+    width: 60px;
+    background-color: rgba(208, 208, 208, 0.186);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+    padding-top: 20px;
+}
+
+#gitIcon{
+    color: white;
+    font-size: 48px;
+    pointer-events: all;
 }
