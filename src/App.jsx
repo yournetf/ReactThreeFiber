@@ -70,6 +70,47 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    if (enterClicked) {
+      const controls = orbitControlsRef.current;
+      const camera = controls.object; // The camera being controlled
+      const targetZoom = 75; // Desired zoom level
+  
+      let frame;
+      const animateZoom = () => {
+        frame = requestAnimationFrame(animateZoom);
+      
+        // Smoothly interpolate the camera's z-position
+        camera.position.z += (targetZoom - camera.position.z) * 0.1;
+      
+        // Adjust the polar angle directly
+        const currentPolarAngle = controls.getPolarAngle();
+        const targetPolarAngle = Math.PI/2.3; // Example target angle (adjust as needed)
+        const newPolarAngle = currentPolarAngle + (targetPolarAngle - currentPolarAngle) * 0.1;
+      
+        controls.minPolarAngle = newPolarAngle; // Update minPolarAngle
+        controls.maxPolarAngle = newPolarAngle; // Lock maxPolarAngle to the same value
+      
+        controls.update(); // Update the controls
+      
+        // Stop the animation when the camera is close enough
+        if (Math.abs(camera.position.z - targetZoom) < 1 && Math.abs(newPolarAngle - targetPolarAngle) < 0.01) {
+          cancelAnimationFrame(frame);
+      
+          // Restore normal maxDistance and polar angle limits
+          controls.maxDistance = 100;
+          controls.minPolarAngle = Math.PI / 3; // Reset to your desired default
+          controls.maxPolarAngle = Math.PI / 2.2;
+        }
+      };
+      
+      animateZoom();
+      
+  
+      return () => cancelAnimationFrame(frame); // Cleanup
+    }
+  }, [enterClicked]);
+  
   
 
   return (
@@ -82,7 +123,7 @@ function App() {
           <Canvas
             shadows
             style={{ backgroundColor: "#090924" }}
-            camera={{ position: [0, 0, 100] }}
+            camera={{ position: [0, 0, 200] }}
           >
             <MainLight />
             <SubLight />
@@ -103,11 +144,11 @@ function App() {
 
             <OrbitControls
               ref={orbitControlsRef}
-              minPolarAngle={Math.PI / 3}
-              maxPolarAngle={Math.PI / 2.3}
+              minPolarAngle={Math.PI / 2.8}
+              maxPolarAngle={Math.PI / 2.2}
               rotateSpeed={0.15}
               minDistance={60}
-              maxDistance={100}
+              maxDistance={200}
               enablePan={false}
             />
 
