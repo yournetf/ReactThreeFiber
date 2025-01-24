@@ -57,7 +57,13 @@ function HUD(){
                         }}>
                             <i id='gitIcon' className="fa fa-envelope-square"></i>
                         </a>
+                </div>
 
+                <div id="captions">
+                    <div id='dragToExplore'>
+                        
+                    </div>
+                    <div></div>
                 </div>
             </div>
         </>
