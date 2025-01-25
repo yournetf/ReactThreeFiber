@@ -111,3 +111,23 @@
     }
 }
 
+@media only screen and (max-width: 1000px) {
+    #loadingContents{
+        position: absolute;
+        width: 90%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        row-gap: 30px;
+        justify-content: space-between;
+    }
+    #welcomeText{
+        font-size: 60px;
+        text-align: left;
+    }
+    #introText{
+        font-size: 30px;
+    }
+}

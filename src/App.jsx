@@ -46,6 +46,7 @@ function App() {
   useEffect(() => {
     const interval = setInterval(() => {
       if (orbitControlsRef.current) {
+        setIsLoading(false);
         console.log("OrbitControls ref is now set:", orbitControlsRef.current);
         clearInterval(interval);
   
@@ -58,7 +59,6 @@ function App() {
         };
   
         controls.addEventListener("change", updateAzimuthalAngle);
-        setIsLoading(false);
         return () => {
           controls.removeEventListener("change", updateAzimuthalAngle);
         };
@@ -125,6 +125,17 @@ function App() {
             style={{ backgroundColor: "#090924" }}
             camera={{ position: [0, 0, 200] }}
           >
+
+            <OrbitControls
+              ref={orbitControlsRef}
+              minPolarAngle={Math.PI / 2.8}
+              maxPolarAngle={Math.PI / 2.2}
+              rotateSpeed={0.15}
+              minDistance={60}
+              maxDistance={200}
+              enablePan={false}
+            />
+
             <MainLight />
             <SubLight />
             <Floor />
@@ -142,15 +153,7 @@ function App() {
               <GizmoViewcube />
             </GizmoHelper> */}
 
-            <OrbitControls
-              ref={orbitControlsRef}
-              minPolarAngle={Math.PI / 2.8}
-              maxPolarAngle={Math.PI / 2.2}
-              rotateSpeed={0.15}
-              minDistance={60}
-              maxDistance={200}
-              enablePan={false}
-            />
+            
 
             <Taxi />
             <Stars />

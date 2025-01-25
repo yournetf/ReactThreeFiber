@@ -6,77 +6,86 @@ import * as THREE from "three";
 import { RotationContext } from "../App";
 
 function BluePantsMan() {
+  const azimuthalAngle = useContext(RotationContext); // Get the azimuthal angle from context
+  const prevAzimuthalAngle = useRef(azimuthalAngle); // To store the previous azimuthal angle
+  const modelRef = useRef();
 
-    const azimuthalAngle = useContext(RotationContext); // Get the azimuthal angle from context
-    const prevAzimuthalAngle = useRef(azimuthalAngle); // To store the previous azimuthal angle
+  const bluePantsModel = useLoader(FBXLoader, "/BluePantsMan.fbx");
+  bluePantsModel.traverse((child) => {
+    if (child.isMesh) {
+      child.castShadow = true;
+      child.receiveShadow = true;
+      if (child.material) {
+        child.material.transparent = false;
+        child.material.opacity = 1.0;
+      }
+    }
+  });
 
-    const modelRef = useRef();
+  // Animation setup
+  const mixer = useRef();
+  const animationAction = useRef();
+  useEffect(() => {
+    if (bluePantsModel.animations && bluePantsModel.animations.length) {
+      mixer.current = new THREE.AnimationMixer(bluePantsModel);
+      animationAction.current = mixer.current.clipAction(bluePantsModel.animations[0]);
+      animationAction.current.play();
+    }
+  }, [bluePantsModel]);
 
-    const bluePantsModel = useLoader(FBXLoader, "/BluePantsMan.fbx");
-    bluePantsModel.traverse((child) => {
-        if (child.isMesh) {
-        child.castShadow = true;
-        child.receiveShadow = true;
-        if (child.material) {
-            child.material.transparent = false;
-            child.material.opacity = 1.0;
-        }
-        }
-    });
+  const radius = 42.5;
+  const angleRef = useRef(4.725); // Start angle
+  const positionRef = useRef(new THREE.Vector3(0, 0, 0)); // Store the position
 
-    // Play animation
-    const mixer = useRef();
-    const animationAction = useRef();
-    useEffect(() => {
-        if (bluePantsModel.animations && bluePantsModel.animations.length) {
-        mixer.current = new THREE.AnimationMixer(bluePantsModel);
-        animationAction.current = mixer.current.clipAction(bluePantsModel.animations[0]);
-        animationAction.current.play();
-        }
-    }, [bluePantsModel]);
+  // Smoothing factor
+  const smoothingFactor = 0.1;
 
+  useFrame((_, delta) => {
+    if (mixer.current && animationAction.current) {
+      // Calculate rotation difference
+      const rotationDelta = azimuthalAngle - prevAzimuthalAngle.current;
 
-    const radius = 42.5; 
-    const angleRef = useRef(4.725); // Start angle
-    const positionRef = useRef(new THREE.Vector3(0, 0, 0)); // Store the position
-    
-    
-    //Animation and position handling in reference to the world rotation.
-    useFrame((_, delta) => {
-        
-        //Update the animation.
-        if (mixer.current && animationAction.current) {
-            // Calculate rotation difference
-            const rotationDelta = azimuthalAngle - prevAzimuthalAngle.current;
+      // Smoothly interpolate angle
+      angleRef.current -= rotationDelta;
 
-            // Adjust animation speed based on rotation
-            const speed = rotationDelta * 100;
-            animationAction.current.setEffectiveTimeScale(speed/2);
+      // Calculate new position
+      const targetPosition = new THREE.Vector3(
+        radius * -Math.cos(angleRef.current),
+        0,
+        radius * -Math.sin(angleRef.current)
+      );
 
+      // Smoothly interpolate position
+      positionRef.current.lerp(targetPosition, smoothingFactor);
 
-            //Update the positioning.
-            if (modelRef.current) {
-                angleRef.current -= rotationDelta;
-                const x = radius * -Math.cos(angleRef.current);
-                const z = radius * -Math.sin(angleRef.current);
-                
-                modelRef.current.position.set(x, 0, z); // Set the new position
-                positionRef.current.set(x, 0, z);
-                
-                modelRef.current.rotation.y = -angleRef.current;
-            } 
+      if (modelRef.current) {
+        modelRef.current.position.copy(positionRef.current); // Set interpolated position
+        modelRef.current.rotation.y = -angleRef.current; // Update rotation
 
-            // Update mixer
-            mixer.current.update(delta);
+        // Adjust animation speed, clamping to a max value
+        const speed = THREE.MathUtils.clamp(rotationDelta * 100, -10, 10); // Cap speed
+        animationAction.current.setEffectiveTimeScale(Math.abs(speed) / 2); // Ensure positive time scale
+      }
 
-            // Update previous azimuthal angle
-            prevAzimuthalAngle.current = azimuthalAngle;
-        }
+      // Update mixer
+      mixer.current.update(delta);
 
-        
-    });
+      // Update previous azimuthal angle
+      prevAzimuthalAngle.current = azimuthalAngle;
+    }
+  });
 
-    return <primitive ref={modelRef} object={bluePantsModel} position={[0, 0, 42.5]} scale={[4, 4, 4]} rotation={[0, Math.PI/2, 0]} receiveShadow castShadow/>;
+  return (
+    <primitive
+      ref={modelRef}
+      object={bluePantsModel}
+      position={[0, 0, 42.5]}
+      scale={[4, 4, 4]}
+      rotation={[0, Math.PI / 2, 0]}
+      receiveShadow
+      castShadow
+    />
+  );
 }
 
 export default BluePantsMan;
