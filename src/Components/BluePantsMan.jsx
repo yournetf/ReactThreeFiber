@@ -38,7 +38,7 @@ function BluePantsMan() {
   const positionRef = useRef(new THREE.Vector3(0, 0, 0)); // Store the position
 
   // Smoothing factor
-  const smoothingFactor = 0.1;
+  const smoothingFactor = 0.2;
 
   useFrame((_, delta) => {
     if (mixer.current && animationAction.current) {
@@ -66,6 +66,8 @@ function BluePantsMan() {
         const speed = THREE.MathUtils.clamp(rotationDelta * 100, -10, 10); // Cap speed
         animationAction.current.setEffectiveTimeScale(Math.abs(speed) / 2); // Ensure positive time scale
       }
+
+      
 
       // Update mixer
       mixer.current.update(delta);
