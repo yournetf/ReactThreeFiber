@@ -22,11 +22,6 @@
     padding-right: 40px;
 }
 
-#hamburgerButton{
-    position: absolute;
-    right: 20px;
-}
-
 #darkModeButton{
     right: 20px;
     border-radius: 20px;
