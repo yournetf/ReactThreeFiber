@@ -3,12 +3,18 @@ import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
 import { useContext, useEffect, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { RotationContext } from "../App";
+import { RotationContext, DarkmodeContext } from "../App";
+import { useHelper } from "@react-three/drei";
 
 function BluePantsMan() {
-  const azimuthalAngle = useContext(RotationContext); // Get the azimuthal angle from context
-  const prevAzimuthalAngle = useRef(azimuthalAngle); // To store the previous azimuthal angle
+  const spotLight = useRef();
+  useHelper(spotLight, THREE.SpotLightHelper, 'white' );
+
+  const azimuthalAngle = useContext(RotationContext);
+  const { darkMode } = useContext(DarkmodeContext);
+  const prevAzimuthalAngle = useRef(azimuthalAngle);
   const modelRef = useRef();
+  const targetRef = useRef();
 
   const bluePantsModel = useLoader(FBXLoader, "/BluePantsMan.fbx");
   bluePantsModel.traverse((child) => {
@@ -22,7 +28,6 @@ function BluePantsMan() {
     }
   });
 
-  // Animation setup
   const mixer = useRef();
   const animationAction = useRef();
   useEffect(() => {
@@ -34,60 +39,73 @@ function BluePantsMan() {
   }, [bluePantsModel]);
 
   const radius = 42.5;
-  const angleRef = useRef(4.725); // Start angle
-  const positionRef = useRef(new THREE.Vector3(0, 0, 0)); // Store the position
-
-  // Smoothing factor
-  const smoothingFactor = 0.2;
+  const angleRef = useRef(4.725);
+  const positionRef = useRef(new THREE.Vector3(0, 0, 0));
+  const smoothingFactor = 0.1;
 
   useFrame((_, delta) => {
     if (mixer.current && animationAction.current) {
-      // Calculate rotation difference
       const rotationDelta = azimuthalAngle - prevAzimuthalAngle.current;
-
-      // Smoothly interpolate angle
       angleRef.current -= rotationDelta;
 
-      // Calculate new position
       const targetPosition = new THREE.Vector3(
         radius * -Math.cos(angleRef.current),
         0,
         radius * -Math.sin(angleRef.current)
       );
-
-      // Smoothly interpolate position
       positionRef.current.lerp(targetPosition, smoothingFactor);
 
       if (modelRef.current) {
-        modelRef.current.position.copy(positionRef.current); // Set interpolated position
-        modelRef.current.rotation.y = -angleRef.current; // Update rotation
+        modelRef.current.position.copy(positionRef.current);
+        modelRef.current.rotation.y = -angleRef.current;
 
-        // Adjust animation speed, clamping to a max value
-        const speed = THREE.MathUtils.clamp(rotationDelta * 100, -10, 10); // Cap speed
-        animationAction.current.setEffectiveTimeScale(Math.abs(speed) / 2); // Ensure positive time scale
+        const speed = THREE.MathUtils.clamp(rotationDelta * 100, -10, 10);
+        animationAction.current.setEffectiveTimeScale(Math.abs(speed) / 2);
       }
 
-      
-
-      // Update mixer
       mixer.current.update(delta);
-
-      // Update previous azimuthal angle
       prevAzimuthalAngle.current = azimuthalAngle;
+    }
+
+    if (targetRef.current && modelRef.current) {
+      targetRef.current.position.copy(modelRef.current.position); // Update target position
+      targetRef.current.updateMatrixWorld(); // Ensure it is updated in the scene
     }
   });
 
   return (
-    <primitive
-      ref={modelRef}
-      object={bluePantsModel}
-      position={[0, 0, 42.5]}
-      scale={[4, 4, 4]}
-      rotation={[0, Math.PI / 2, 0]}
-      receiveShadow
-      castShadow
-    />
+    <>
+      <primitive
+        ref={modelRef}
+        object={bluePantsModel}
+        position={[0, 0, 42.5]}
+        scale={[4, 4, 4]}
+        rotation={[0, Math.PI / 2, 0]}
+        receiveShadow
+        castShadow
+      />
+
+      {darkMode && (
+        <>
+          {/* Spotlight */}
+          <spotLight
+            ref={spotLight}
+            color={0xffffff}
+            intensity={5000}
+            angle={Math.PI / 30}
+            position={[0, 50, 0]}
+            penumbra={0.5}
+            target={targetRef.current} 
+            castShadow
+          />
+          {/* Invisible Target */}
+          <object3D ref={targetRef} />
+        </>
+      )}
+    </>
   );
 }
 
 export default BluePantsMan;
+
+
