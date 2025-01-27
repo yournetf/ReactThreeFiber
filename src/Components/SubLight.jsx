@@ -6,18 +6,22 @@ import { DarkmodeContext } from "../App";
 
 function ParkLight({ position, scale }) {
   const parkLightModel = useLoader(GLTFLoader, '/low_poly_street_lamp.glb');
-  const clonedParkLight = useMemo(() => parkLightModel.scene.clone(), [parkLightModel]);
-
-  clonedParkLight.traverse((child) => {
-    if (child.isMesh) {
-      child.castShadow = true;
-      child.receiveShadow = true;
-      if (child.material) {
-        child.material.transparent = false;
-        child.material.opacity = 1.0;
+  
+  // Memoize the cloned scene to avoid unnecessary computations
+  const clonedParkLight = useMemo(() => {
+    const clonedScene = parkLightModel.scene.clone();
+    clonedScene.traverse((child) => {
+      if (child.isMesh) {
+        child.castShadow = true;
+        child.receiveShadow = true;
+        if (child.material) {
+          child.material.transparent = false;
+          child.material.opacity = 1.0;
+        }
       }
-    }
-  });
+    });
+    return clonedScene;
+  }, [parkLightModel]);
 
   return (
     <>
