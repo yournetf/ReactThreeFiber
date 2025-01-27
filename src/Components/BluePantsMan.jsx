@@ -4,11 +4,9 @@ import { useContext, useEffect, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { RotationContext, DarkmodeContext } from "../App";
-import { useHelper } from "@react-three/drei";
 
 function BluePantsMan() {
-  const spotLight = useRef();
-  useHelper(spotLight, THREE.SpotLightHelper, 'white' );
+  const spotLightRef = useRef();
 
   const azimuthalAngle = useContext(RotationContext);
   const { darkMode } = useContext(DarkmodeContext);
@@ -41,6 +39,7 @@ function BluePantsMan() {
   const radius = 42.5;
   const angleRef = useRef(4.725);
   const positionRef = useRef(new THREE.Vector3(0, 0, 0));
+  const lightPositionRef = useRef(new THREE.Vector3(0, 0, 0));
   const smoothingFactor = 0.1;
 
   useFrame((_, delta) => {
@@ -48,6 +47,8 @@ function BluePantsMan() {
       const rotationDelta = azimuthalAngle - prevAzimuthalAngle.current;
       angleRef.current -= rotationDelta;
 
+
+      //Calculate the position of the BluePantsMan as well as the target that the spotlight point to.
       const targetPosition = new THREE.Vector3(
         radius * -Math.cos(angleRef.current),
         0,
@@ -55,12 +56,25 @@ function BluePantsMan() {
       );
       positionRef.current.lerp(targetPosition, smoothingFactor);
 
+      //Calculate the position of the spotLight.
+      const lightPosition = new THREE.Vector3(
+        (radius + 50) * -Math.cos(angleRef.current),
+        50,
+        (radius + 50) * -Math.sin(angleRef.current)
+      );
+      lightPositionRef.current.lerp(lightPosition, smoothingFactor);
+      
+
       if (modelRef.current) {
         modelRef.current.position.copy(positionRef.current);
         modelRef.current.rotation.y = -angleRef.current;
 
         const speed = THREE.MathUtils.clamp(rotationDelta * 100, -10, 10);
         animationAction.current.setEffectiveTimeScale(Math.abs(speed) / 2);
+      }
+
+      if(spotLightRef.current){
+        spotLightRef.current.position.copy(lightPositionRef.current);
       }
 
       mixer.current.update(delta);
@@ -89,12 +103,12 @@ function BluePantsMan() {
         <>
           {/* Spotlight */}
           <spotLight
-            ref={spotLight}
+            ref={spotLightRef}
             color={0xffffff}
             intensity={5000}
-            angle={Math.PI / 30}
+            angle={Math.PI / 20}
             position={[0, 50, 0]}
-            penumbra={0.5}
+            penumbra={0.75}
             target={targetRef.current} 
             castShadow
           />
