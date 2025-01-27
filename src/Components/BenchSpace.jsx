@@ -1,6 +1,7 @@
 import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useMemo } from "react";
+import React from "react";
 
 function Bench({ position, scale, rotation }){
     const benchModel = useLoader(GLTFLoader, '/low_poly_bench.glb');
@@ -34,4 +35,4 @@ function BenchSpace(){
         </>
     );
 }
-export default BenchSpace;
+export default React.memo(BenchSpace);

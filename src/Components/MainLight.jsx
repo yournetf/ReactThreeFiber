@@ -2,6 +2,7 @@ import { useRef, useContext } from "react";
 import { useHelper } from "@react-three/drei";
 import { SpotLightHelper } from "three";
 import { DarkmodeContext } from "../App";
+import React from "react";
 
 function MainLight(){
     const light = useRef();
@@ -38,4 +39,4 @@ function MainLight(){
         </>
     );
 }
-export default MainLight;
+export default React.memo(MainLight);

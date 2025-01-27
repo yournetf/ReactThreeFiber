@@ -1,5 +1,6 @@
 import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import React from "react";
 
 function PublicPhone(){
     const publicPhoneModel = useLoader(GLTFLoader, `/telephone_public_low_poly.glb`);
@@ -22,4 +23,4 @@ function InnerSidewalkSpace(){
         </>
     );
 }
-export default InnerSidewalkSpace;
+export default React.memo(InnerSidewalkSpace);

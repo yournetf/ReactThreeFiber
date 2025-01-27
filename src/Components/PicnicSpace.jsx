@@ -1,5 +1,6 @@
 import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import React from "react";
 
 function PicnicMat(){
     const picnicMatModel = useLoader(GLTFLoader, `/picnic_set_free.glb`);
@@ -30,4 +31,4 @@ function PicnicSpace(){
         <PicnicMat/>
     );
 }
-export default PicnicSpace;
+export default React.memo(PicnicSpace);

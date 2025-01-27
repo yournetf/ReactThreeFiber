@@ -2,6 +2,7 @@ import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useMemo } from "react";
 import { color } from "three/tsl";
+import React from "react";
 
 function GrassSpace(){
     function Reed({ position, scale }){
@@ -88,4 +89,4 @@ function GrassSpace(){
         </>
     );
 }
-export default GrassSpace;
+export default React.memo(GrassSpace);

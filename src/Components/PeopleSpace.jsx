@@ -1,24 +1,31 @@
-import { useLoader } from "@react-three/fiber";
-import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader";
-import { useRef, useEffect } from "react";
-import { useFrame } from "@react-three/fiber";
-import * as THREE from 'three';
-import YellowPantsWoman from "./YellowPantsWoman";
-import PurplePantsWoman from "./PurplePantsWoman";
-import BrownPantsMan from "./BrownPantsMan";
-import BluePantsWoman from "./BluePantsWoman";
+import React, { Suspense, lazy } from 'react';
 import BluePantsMan from "./BluePantsMan";
 
-function PeopleSpace(){
+// Lazy load components
+const YellowPantsWoman = lazy(() => import('./YellowPantsWoman'));
+const PurplePantsWoman = lazy(() => import('./PurplePantsWoman'));
+const BrownPantsMan = lazy(() => import('./BrownPantsMan'));
+const BluePantsWoman = lazy(() => import('./BluePantsWoman'));
 
-    return(
-        <>
-            <YellowPantsWoman/>
-            <PurplePantsWoman/>
-            <BrownPantsMan/>
-            <BluePantsWoman/>
-            <BluePantsMan/>
-        </>
-    );
+function PeopleSpace() {
+  return (
+    <>
+      <BluePantsMan />
+      
+      <Suspense fallback={<></>}>
+        <YellowPantsWoman />
+      </Suspense>
+      <Suspense fallback={<></>}>
+        <PurplePantsWoman />
+      </Suspense>
+      <Suspense fallback={<></>}>
+        <BrownPantsMan />
+      </Suspense>
+      <Suspense fallback={<></>}>
+        <BluePantsWoman />
+      </Suspense>
+    </>
+  );
 }
+
 export default PeopleSpace;

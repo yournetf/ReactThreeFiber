@@ -1,7 +1,7 @@
 import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useMemo } from "react";
-
+import React from "react";
 
 function FlowerSpace(){
     function Flower({ position, scale, flowerType }){
@@ -51,4 +51,4 @@ function FlowerSpace(){
         </>
     );
 }
-export default FlowerSpace;
+export default React.memo(FlowerSpace);

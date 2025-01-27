@@ -1,4 +1,4 @@
-
+import React from "react";
 
 function Floor(){
     return(
@@ -33,4 +33,4 @@ function Floor(){
         </>
     );
 }
-export default Floor;
+export default React.memo(Floor);

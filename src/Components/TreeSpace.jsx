@@ -1,6 +1,7 @@
 import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { useMemo } from "react";
+import React from "react";
 
 function Tree({ position, scale }){
     const treeModel = useLoader(GLTFLoader, '/Tree2_Green.glb');
@@ -40,4 +41,4 @@ function TreeSpace(){
     );
 
 }
-export default TreeSpace;
+export default React.memo(TreeSpace);

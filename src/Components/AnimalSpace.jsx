@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from 'three';
 import { TextureLoader } from "three";
+import React from "react";
 
 function Dog(){
     const dogModel = useLoader(FBXLoader, '/husky.fbx');
@@ -82,4 +83,4 @@ function AnimalSpace(){
         </>
     );
 }
-export default AnimalSpace;
+export default React.memo(AnimalSpace);

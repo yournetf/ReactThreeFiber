@@ -1,6 +1,6 @@
 import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-
+import React from "react";
 
 function CenterPiece(){
     const empireModel = useLoader(GLTFLoader, `/low_poly_empire_state_building.glb`);
@@ -22,4 +22,4 @@ function CenterPiece(){
         </>
     );
 }
-export default CenterPiece;
+export default React.memo(CenterPiece);
