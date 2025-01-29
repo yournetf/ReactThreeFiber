@@ -7,6 +7,17 @@ function Taxi(){
     
     const result = useLoader(GLTFLoader, '/low_poly_car_model.glb');
     const carRef = useRef();
+
+    result.scene.traverse((child) => {
+        if (child.isMesh) {
+            child.castShadow = true;
+            child.receiveShadow = true;
+          if (child.material) {
+            child.material.transparent = false;
+            child.material.opacity = 1.0;
+          }
+        }
+      });
     
     const radius = 34; 
     const speed = 0.004; 

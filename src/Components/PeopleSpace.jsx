@@ -12,16 +12,16 @@ function PeopleSpace() {
     <>
       <BluePantsMan />
       
-      <Suspense fallback={<></>}>
+      <Suspense fallback={null}>
         <YellowPantsWoman />
       </Suspense>
-      <Suspense fallback={<></>}>
+      <Suspense fallback={null}>
         <PurplePantsWoman />
       </Suspense>
-      <Suspense fallback={<></>}>
+      <Suspense fallback={null}>
         <BrownPantsMan />
       </Suspense>
-      <Suspense fallback={<></>}>
+      <Suspense fallback={null}>
         <BluePantsWoman />
       </Suspense>
     </>

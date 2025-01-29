@@ -55,6 +55,45 @@
     pointer-events: all;
 }
 
+#gitIcon:hover{
+    background-color: rgb(0, 0, 96);
+}
+
+#captions{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70vw;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.captionsText{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 36px;
+    font-weight: 600;
+    opacity: 100%;
+    transition: 1s ease-in-out;
+}
+
+.invisible{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 36px;
+    font-weight: 600;
+    opacity: 0%;
+    transition: 1s ease-in-out;
+}
+
+
+
 @media only screen and (max-width: 600px) {
     #sideBar{
         margin-left: 0;

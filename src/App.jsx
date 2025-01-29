@@ -1,7 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import "./App.css";
 import { useRef, useState, createContext, useContext, useEffect, Suspense } from "react";
-import { OrbitControls, GizmoHelper, GizmoViewcube } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import HUD from "./Components/HUD";
 import MainLight from "./Components/MainLight";
 import SubLight from "./Components/SubLight";
@@ -139,12 +139,11 @@ function App() {
             <MainLight />
             <Floor />
             <CenterPiece />
-            
-            <Suspense fallback={<></>}>
-              <SubLight />
-            </Suspense>
-            
 
+          
+            <SubLight />
+            
+            
             <TreeSpace />
             <FlowerSpace />
             <GrassSpace />
@@ -153,13 +152,6 @@ function App() {
             <PeopleSpace />
             <BenchSpace />
             <AnimalSpace />
-
-            {/* <GizmoHelper>
-              <GizmoViewcube />
-            </GizmoHelper> */}
-
-            
-
             <Taxi />
             <Stars />
           </Canvas>

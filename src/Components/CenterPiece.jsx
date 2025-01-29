@@ -14,7 +14,7 @@ function CenterPiece(){
         <>
             {/* Hill */}
             <mesh rotation={[-Math.PI, 0, 0]} position={[0, -20, 0]} scale={[1, 1, 1]} castShadow receiveShadow>
-                <sphereGeometry args={[32, 1000, 400, 10, 8, 2, 2]}/>
+                <sphereGeometry args={[32, 1000, 400, 10, 8, 2.2, 2]}/>
                 <meshStandardMaterial color={'#a1a19a'}/>
             </mesh> 
             

@@ -12,8 +12,6 @@ function ParkLight({ position, scale }) {
     const clonedScene = parkLightModel.scene.clone();
     clonedScene.traverse((child) => {
       if (child.isMesh) {
-        child.castShadow = true;
-        child.receiveShadow = true;
         if (child.material) {
           child.material.transparent = false;
           child.material.opacity = 1.0;

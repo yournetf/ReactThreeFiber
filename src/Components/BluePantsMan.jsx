@@ -17,7 +17,6 @@ function BluePantsMan() {
 
   // Whenever darkMode is toggled from dark to light, ensures the targetRef doesn't switch to null.
   useEffect(()=>{
-    console.log(targetRef);
     if(targetRef.current == null){
       targetRef.current = new THREE.Object3D();
     }

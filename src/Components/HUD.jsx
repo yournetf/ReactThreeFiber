@@ -1,11 +1,14 @@
 import '../Styles/HUD.css';
 import { DarkmodeContext } from '../App';
+import { RotationContext } from '../App';
 import { useContext } from 'react';
 import 'font-awesome/css/font-awesome.min.css';
 
 function HUD(){
+    
     const {darkMode, setDarkMode} = useContext(DarkmodeContext);
-
+    const azimuthalAngle = useContext(RotationContext);
+    
     const handleDarkModeButton = () => {
         setDarkMode(!darkMode);
     }
@@ -60,10 +63,10 @@ function HUD(){
                 </div>
 
                 <div id="captions">
-                    <div id='dragToExplore'>
-                        
-                    </div>
-                    <div></div>
+                    <p className={(-0.5 < azimuthalAngle && azimuthalAngle < 0.5) ? 'captionsText' : 'invisible'}>My journey as a software engineer began in New York City. </p>
+                    <p className={(1 < azimuthalAngle && azimuthalAngle < 2) ? 'captionsText' : 'invisible'}>I went to The Bronx High School of Science! </p>
+                    <p className={(2.5 < azimuthalAngle || azimuthalAngle < -2.5) ? 'captionsText' : 'invisible'}>Then I went to Queens College... </p>
+                    <p className={(-2 < azimuthalAngle && azimuthalAngle < -1) ? 'captionsText' : 'invisible'}>Finally I had an internship and graduated!!! </p>
                 </div>
             </div>
         </>
