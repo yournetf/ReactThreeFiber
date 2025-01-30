@@ -37,7 +37,7 @@ function HUD(){
 
                 <div id='sideBar'>
                         <a href="https://github.com/yournetf" target='blank'>
-                            <i id={(-2 < azimuthalAngle && azimuthalAngle < 1) ? 'gitIcon' : 'gitIconIlluminated'}className={'fa fa-github-square'}/>
+                            <i id='gitIcon' className={'fa fa-github-square'}/>
                         </a>
                         <a href="https://www.linkedin.com/in/frank-yournet" target='blank'>
                             <i id='gitIcon' className={'fa fa-linkedin-square'}/>
