@@ -37,13 +37,13 @@ function HUD(){
 
                 <div id='sideBar'>
                         <a href="https://github.com/yournetf" target='blank'>
-                            <i id='gitIcon' className={'fa fa-github-square'}/>
+                            <i id={(-2 < azimuthalAngle && azimuthalAngle < 1) ? 'gitIcon' : 'gitIconIlluminated'}className={'fa fa-github-square'}/>
                         </a>
                         <a href="https://www.linkedin.com/in/frank-yournet" target='blank'>
                             <i id='gitIcon' className={'fa fa-linkedin-square'}/>
                         </a>
-                        <a href="https://phat-black.web.app/" target='blank'>
-                            <i id='gitIcon' className={'fa fa-pinterest-square'}/>
+                            <a href="https://phat-black.web.app/" target='blank'>
+                                <i id='gitIcon' className={'fa fa-pinterest-square'}/>
                         </a>
                         <a href="/Frank_Yournet_Resume.pdf" target='blank'>
                             <i id='gitIcon' className={'fa fa-file-pdf-o'}/>
@@ -64,9 +64,9 @@ function HUD(){
 
                 <div id="captions">
                     <p className={(-0.5 < azimuthalAngle && azimuthalAngle < 0.5) ? 'captionsText' : 'invisible'}>My journey as a software engineer began in New York City. </p>
-                    <p className={(1 < azimuthalAngle && azimuthalAngle < 2) ? 'captionsText' : 'invisible'}>I went to The Bronx High School of Science! </p>
-                    <p className={(2.5 < azimuthalAngle || azimuthalAngle < -2.5) ? 'captionsText' : 'invisible'}>Then I went to Queens College... </p>
-                    <p className={(-2 < azimuthalAngle && azimuthalAngle < -1) ? 'captionsText' : 'invisible'}>Finally I had an internship and graduated!!! </p>
+                    <p className={(1 < azimuthalAngle && azimuthalAngle < 2) ? 'captionsText' : 'invisible'}>I attended The Bronx High School of Science, home to the most Nobel Piece Prize winners in the world! </p>
+                    <p className={(2.5 < azimuthalAngle || azimuthalAngle < -2.5) ? 'captionsText' : 'invisible'}>I then went to Queens College, where I studied Computer Science and learned tons of theory and programming languages.</p>
+                    <p className={(-2 < azimuthalAngle && azimuthalAngle < -1) ? 'captionsText' : 'invisible'}>I graduated with Dean's List Honors and began creating many projects, like this website and the ones you can view by checking out my GitHub!!!</p>
                 </div>
             </div>
         </>
