@@ -131,3 +131,13 @@
         font-size: 30px;
     }
 }
+
+
+@media only screen and (max-width: 600px) {
+    #welcomeText{
+        font-size: 48px;
+    }
+    #introText{
+        font-size: 18px; 
+    }
+}

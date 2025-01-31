@@ -114,4 +114,7 @@
         padding-left: 10px;
         padding-right: 10px;
     }
+    #captions{
+        top: 20%;
+    }
 }
