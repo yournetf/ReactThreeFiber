@@ -72,7 +72,7 @@
     width: 100%;
     text-align: center;
     color: white;
-    font-size: 36px;
+    font-size: clamp(8px, 3vw, 36px);
     font-weight: 600;
     opacity: 100%;
     transition: 1s ease-in-out;
@@ -83,8 +83,8 @@
     width: 100%;
     text-align: center;
     color: white;
-    font-size: 36px;
     font-weight: 600;
+    font-size: clamp(8px, 3vw, 36px);
     opacity: 0%;
     transition: 1s ease-in-out;
 }
@@ -113,14 +113,5 @@
         padding-top: 10px;
         padding-left: 10px;
         padding-right: 10px;
-    }
-    .captionsText{
-        font-size: 18px;
-    }    
-}
-
-@media only screen and (max-width: 1000px) {
-    .captionsText{
-        font-size: 24px;
     }
 }
