@@ -1,1 +1,1 @@
-A React Three Fiber project used as my portfoio.
+Feel free to fork the repository and use it as a template for your own portfolio! 
