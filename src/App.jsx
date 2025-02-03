@@ -18,6 +18,7 @@ import AnimalSpace from "./Components/AnimalSpace";
 import Taxi from "./Components/Taxi";
 import Stars from "./Components/Stars";
 import LoadingScreen from "./Components/LoadingScreen";
+import ToolBar from "./Components/ToolBar";
 
 //Context for dark mode.
 export const DarkmodeContext = createContext();
@@ -139,7 +140,7 @@ function App() {
             <MainLight />
             <Floor />
             <CenterPiece />
-
+            <ToolBar/>
           
             <SubLight />
             

@@ -7,6 +7,7 @@ import { RotationContext, DarkmodeContext } from "../App";
 import { Svg, Text } from "@react-three/drei";
 import speechBubble from "/speech-bubble-svgrepo-com.svg"
 
+
 function BluePantsMan() {
   const spotLightRef = useRef();
   const azimuthalAngle = useContext(RotationContext);
