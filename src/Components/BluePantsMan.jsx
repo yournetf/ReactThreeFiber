@@ -4,6 +4,8 @@ import { useContext, useEffect, useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { RotationContext, DarkmodeContext } from "../App";
+import { Svg, Text } from "@react-three/drei";
+import speechBubble from "/speech-bubble-svgrepo-com.svg"
 
 function BluePantsMan() {
   const spotLightRef = useRef();
@@ -11,6 +13,8 @@ function BluePantsMan() {
   const { darkMode } = useContext(DarkmodeContext);
   const prevAzimuthalAngle = useRef(azimuthalAngle);
   const modelRef = useRef();
+  const textRef = useRef();
+  const bubbleRef = useRef();
 
   // Initialize targetRef with a placeholder object (necessary to render the spotlight).
   const targetRef = useRef(new THREE.Object3D()); 
@@ -79,6 +83,12 @@ function BluePantsMan() {
         modelRef.current.position.copy(positionRef.current);
         modelRef.current.rotation.y = -angleRef.current;
 
+        textRef.current.position.set(modelRef.current.position.x, modelRef.current.position.y + 15, modelRef.current.position.z)
+        textRef.current.rotation.set(modelRef.current.rotation.x, modelRef.current.rotation.y - Math.PI / 2 , modelRef.current.rotation.z);
+
+        bubbleRef.current.position.set(modelRef.current.position.x - 5, modelRef.current.position.y + 20, modelRef.current.position.z)
+        bubbleRef.current.rotation.set(modelRef.current.rotation.x, modelRef.current.rotation.y - Math.PI / 2 , modelRef.current.rotation.z);
+
         const speed = THREE.MathUtils.clamp(rotationDelta * 100, -10, 10);
         animationAction.current.setEffectiveTimeScale(Math.abs(speed) / 2);
       }
@@ -117,6 +127,16 @@ function BluePantsMan() {
 
   return (
     <>
+      <Svg src={speechBubble} ref={bubbleRef} scale={0.15} position={[0, 0, 50]} />
+      <Text
+        ref={textRef}
+        position={[0, 5, 50]} 
+        color={'white'}
+        anchorX={"center"}
+        anchorY={"bottom"}
+      >
+        Hello world
+      </Text>
       <primitive
         ref={modelRef}
         object={bluePantsModel}
