@@ -11,7 +11,7 @@ npm (comes with Node.js) or Yarn
 Getting Started
 
 Clone the repository:
-git clone https://github.com/your-username/react-three-fiber-project.git
+git clone https://github.com/yournetf/ReactThreeFiber
 cd ReactThreeFiber
 Install dependencies:
 Using npm:
