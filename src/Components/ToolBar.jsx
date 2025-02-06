@@ -61,7 +61,7 @@ function ToolBar() {
                     src={linkedInSymbol}
                     scale={0.15}
                     position={[-8.25, 0, 50]}
-                    onClick={() => window.open("www.linkedin.com/in/frank-yournet", "_blank")}
+                    onClick={() => window.open("https://www.linkedin.com/in/frank-yournet", "_blank")}
                     onPointerOver={() => setHovered(true)}
                     onPointerOut={() => setHovered(false)}
                 />
