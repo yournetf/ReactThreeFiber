@@ -61,7 +61,7 @@ function ToolBar() {
                     src={linkedInSymbol}
                     scale={0.15}
                     position={[-8.25, 0, 50]}
-                    onClick={() => window.open("https://github.com", "_blank")}
+                    onClick={() => window.open("www.linkedin.com/in/frank-yournet", "_blank")}
                     onPointerOver={() => setHovered(true)}
                     onPointerOut={() => setHovered(false)}
                 />
@@ -70,7 +70,7 @@ function ToolBar() {
                     src={appSymbol}
                     scale={0.005}
                     position={[-13.75, 0, 50]}
-                    onClick={() => window.open("https://github.com", "_blank")}
+                    onClick={() => window.open("https://github.com/yournetf/StatSavvy", "_blank")}
                     onPointerOver={() => setHovered(true)}
                     onPointerOut={() => setHovered(false)}
                 />
@@ -79,7 +79,7 @@ function ToolBar() {
                     src={mailSymbol}
                     scale={0.08}
                     position={[-19.25, 0, 50]}
-                    onClick={() => window.open("https://github.com", "_blank")}
+                    onClick={() => window.open("mailto:frankyournet@gmail.com", "_blank")}
                     onPointerOver={() => setHovered(true)}
                     onPointerOut={() => setHovered(false)}
                 />
