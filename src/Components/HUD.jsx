@@ -35,7 +35,7 @@ function HUD(){
                     }
                 </div>
 
-                <div id='sideBar'>
+                {/* <div id='sideBar'>
                         <a href="https://github.com/yournetf" target='blank'>
                             <i id='gitIcon' className={'fa fa-github-square'}/>
                         </a>
@@ -60,7 +60,7 @@ function HUD(){
                         }}>
                             <i id='gitIcon' className="fa fa-envelope-square"></i>
                         </a>
-                </div>
+                </div> */}
 
                 <div id="captions">
                     <p className={(-0.5 < azimuthalAngle && azimuthalAngle < 0.5) ? 'captionsText' : 'invisible'}>My journey as a software engineer began in New York City. </p>

@@ -136,7 +136,7 @@ function BluePantsMan() {
 
   return (
     <>
-      <Svg src={speechBubble} ref={bubbleRef} scale={0.15} position={[0, 0, 50]} />
+      <Svg src={speechBubble} ref={bubbleRef} scale={0.15} position={[0, 0, 50]} visible={false}/>
       <Text
         ref={textRef}
         position={[0, 5, 50]} 
@@ -144,7 +144,7 @@ function BluePantsMan() {
         anchorX={"center"}
         anchorY={"bottom"}
       >
-        Hello world
+        {/* Hello world */}
       </Text>
       <primitive
         ref={modelRef}
