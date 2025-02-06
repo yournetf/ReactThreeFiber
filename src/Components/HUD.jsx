@@ -35,7 +35,7 @@ function HUD(){
                     }
                 </div>
 
-                <div id='sideBar'>
+                {/* <div id='sideBar'>
                         <a href="https://github.com/yournetf" target='blank'>
                             <i id='gitIcon' className={'fa fa-github-square'}/>
                         </a>
@@ -60,7 +60,7 @@ function HUD(){
                         }}>
                             <i id='gitIcon' className="fa fa-envelope-square"></i>
                         </a>
-                </div>
+                </div> */}
 
                 <div id="captions">
                     <p className={(-0.5 < azimuthalAngle && azimuthalAngle < 0.5) ? 'captionsText' : 'invisible'}>My journey as a software engineer began in New York City. </p>
@@ -68,6 +68,7 @@ function HUD(){
                     <p className={(2.5 < azimuthalAngle || azimuthalAngle < -2.5) ? 'captionsText' : 'invisible'}>I then went to Queens College, where I studied Computer Science and learned tons of theory and programming languages.</p>
                     <p className={(-2 < azimuthalAngle && azimuthalAngle < -1) ? 'captionsText' : 'invisible'}>I graduated with Dean's List Honors and began creating many projects, like this website and the ones you can view by checking out my GitHub!!!</p>
                 </div>
+
             </div>
         </>
     );

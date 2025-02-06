@@ -46,6 +46,8 @@
     align-items: center;
     row-gap: 30px;
     padding-top: 30px;
+    pointer-events: all;
+    transition: transform 0.5s ease-in-out;
 }
 
 #gitIcon{
@@ -74,7 +76,7 @@
     color: white;
     font-size: clamp(8px, 3vw, 36px);
     font-weight: 600;
-    opacity: 100%;
+    opacity: 1;
     transition: 1s ease-in-out;
 }
 
@@ -85,7 +87,7 @@
     color: white;
     font-weight: 600;
     font-size: clamp(8px, 3vw, 36px);
-    opacity: 0%;
+    opacity: 0;
     transition: 1s ease-in-out;
 }
 
