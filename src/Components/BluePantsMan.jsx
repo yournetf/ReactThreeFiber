@@ -163,6 +163,7 @@ function BluePantsMan() {
         textAlign="center"
         position={[0, 4, 50]} 
         maxWidth={20}
+        fontWeight={700}
         color={'black'}
         anchorX={"center"}
         anchorY={"bottom"}
@@ -176,6 +177,7 @@ function BluePantsMan() {
         textAlign="center"
         position={[0, 4, 50]} 
         maxWidth={20}
+        fontWeight={700}
         color={'black'}
         anchorX={"center"}
         anchorY={"bottom"}
@@ -189,6 +191,7 @@ function BluePantsMan() {
         textAlign="center"
         position={[0, 4, 50]} 
         maxWidth={20}
+        fontWeight={700}
         color={'black'}
         anchorX={"center"}
         anchorY={"bottom"}
@@ -202,6 +205,7 @@ function BluePantsMan() {
         textAlign="center"
         position={[0, 4, 50]} 
         maxWidth={20}
+        fontWeight={700}
         color={'black'}
         anchorX={"center"}
         anchorY={"bottom"}
