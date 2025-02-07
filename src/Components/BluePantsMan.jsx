@@ -99,7 +99,7 @@ function BluePantsMan() {
           smoothingFactor
         );
         textRef3.current.position.lerp(
-          new THREE.Vector3(targetPosition.x, targetPosition.y + 12.7, targetPosition.z),
+          new THREE.Vector3(targetPosition.x, targetPosition.y + 12.5, targetPosition.z),
           smoothingFactor
         );
         textRef4.current.position.lerp(
