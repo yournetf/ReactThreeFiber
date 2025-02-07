@@ -12,81 +12,91 @@ import linkedInSymbol from "/linkedin-linked-in-svgrepo-com.svg";
 
 import "../Styles/ToolBar.css";
 
+function ClickableIcon({source, iconScale, positionAry, onClickFunction}){
+    return(
+        <>
+            <Svg
+                src={source}
+                scale={iconScale}
+                position={positionAry}
+                onClick={onClickFunction}
+            />
+            <mesh position={[positionAry[0] + 2.25, positionAry[1] - 3, positionAry[2] - 4]} onClick={onClickFunction}>
+                <boxGeometry args={[5, 5, 5]} />
+                <meshBasicMaterial transparent={true} opacity={0}/>
+            </mesh>
+        </>
+    );
+}
+
 function ToolBar() {
     const [taskBarOpen, setTaskBarOpen] = useState(false);
-    const [hovered, setHovered] = useState(false);
 
     const opening = () => setTaskBarOpen(true);
     const closing = () => setTaskBarOpen(false);
-
-    useCursor(hovered); // Change cursor when hovering over the GitHub icon
 
     return (
         <>
             {/* ToolBar */}
             {taskBarOpen ? (
                 <>
-                <Svg src={minusSymbol} scale={0.15} position={[-2.25, 0, 50]} onClick={closing} onPointerOver={() => setHovered(true)}
-                onPointerOut={() => setHovered(false)}/>
+                <ClickableIcon 
+                    source={minusSymbol} 
+                    iconScale={0.15} 
+                    positionAry={[-2.25, 0, 50]} 
+                    onClickFunction={closing}
+                />
 
                 {/* GitHub Link */}
-                <Svg
-                    src={githubSymbol}
-                    scale={0.15}
-                    position={[3.75, 0, 50]}
-                    onClick={() => window.open("https://github.com", "_blank")}
-                    onPointerOver={() => setHovered(true)}
-                    onPointerOut={() => setHovered(false)}
+                <ClickableIcon
+                    source={githubSymbol}
+                    iconScale={0.15}
+                    positionAry={[3.75, 0, 50]}
+                    onClickFunction={()=>{window.open("https://github.com", "_blank")}}
                 />
 
-                <Svg
-                    src={resumeSymbol}
-                    scale={0.08}
-                    position={[9.75, 0, 50]}
-                    onClick={() => window.open("/Frank_Yournet_Resume.pdf", "_blank")}
-                    onPointerOver={() => setHovered(true)}
-                    onPointerOut={() => setHovered(false)}
+                <ClickableIcon
+                    source={resumeSymbol}
+                    iconScale={0.08}
+                    positionAry={[9.75, 0, 50]}
+                    onClickFunction={() =>{window.open("/Frank_Yournet_Resume.pdf", "_blank")}}
                 />
 
-                <Svg
-                    src={certificationSymbol}
-                    scale={0.2}
-                    position={[15.25, 0, 50]}
-                    onClick={() => window.open("AWS_Course_Completion_Certificate.pdf", "_blank")}
-                    onPointerOver={() => setHovered(true)}
-                    onPointerOut={() => setHovered(false)}
+                <ClickableIcon
+                    source={certificationSymbol}
+                    iconScale={0.2}
+                    positionAry={[15.25, 0, 50]}
+                    onClickFunction={() => window.open("AWS_Course_Completion_Certificate.pdf", "_blank")}
                 />
 
-                <Svg
-                    src={linkedInSymbol}
-                    scale={0.15}
-                    position={[-8.25, 0, 50]}
-                    onClick={() => window.open("https://www.linkedin.com/in/frank-yournet", "_blank")}
-                    onPointerOver={() => setHovered(true)}
-                    onPointerOut={() => setHovered(false)}
+                <ClickableIcon
+                    source={linkedInSymbol}
+                    iconScale={0.15}
+                    positionAry={[-8.25, 0, 50]}
+                    onClickFunction={() => window.open("https://www.linkedin.com/in/frank-yournet", "_blank")}
                 />
 
-                <Svg
-                    src={appSymbol}
-                    scale={0.005}
-                    position={[-13.75, 0, 50]}
-                    onClick={() => window.open("https://github.com/yournetf/StatSavvy", "_blank")}
-                    onPointerOver={() => setHovered(true)}
-                    onPointerOut={() => setHovered(false)}
+                <ClickableIcon
+                    source={appSymbol}
+                    iconScale={0.005}
+                    positionAry={[-13.75, 0, 50]}
+                    onClickFunction={() => window.open("https://github.com/yournetf/StatSavvy", "_blank")}
                 />
 
-                <Svg
-                    src={mailSymbol}
-                    scale={0.08}
-                    position={[-19.25, 0, 50]}
-                    onClick={() => window.open("mailto:frankyournet@gmail.com", "_blank")}
-                    onPointerOver={() => setHovered(true)}
-                    onPointerOut={() => setHovered(false)}
+                <ClickableIcon
+                    source={mailSymbol}
+                    iconScale={0.08}
+                    positionAry={[-19.25, 0, 50]}
+                    onClickFunction={() => window.open("mailto:frankyournet@gmail.com", "_blank")}
                 />
                 </>
             ) : (
-                <Svg src={plusSymbol} scale={0.15} position={[-2.25, 0, 50]} onClick={opening} onPointerOver={() => setHovered(true)}
-                onPointerOut={() => setHovered(false)}/>
+                <ClickableIcon 
+                    source={plusSymbol} 
+                    iconScale={0.15} 
+                    positionAry={[-2.25, 0, 50]} 
+                    onClickFunction={opening} 
+                />
             )}
 
             
