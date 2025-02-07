@@ -5,7 +5,7 @@ import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { RotationContext, DarkmodeContext } from "../App";
 import { Svg, Text } from "@react-three/drei";
-import speechBubble from "/speech-bubble-svgrepo-com.svg"
+import speechBubble from "/public/speech-bubble-svgrepo-com.svg"
 
 
 function BluePantsMan() {
@@ -14,7 +14,10 @@ function BluePantsMan() {
   const { darkMode } = useContext(DarkmodeContext);
   const prevAzimuthalAngle = useRef(azimuthalAngle);
   const modelRef = useRef();
-  const textRef = useRef();
+  const textRef1 = useRef();
+  const textRef2 = useRef();
+  const textRef3 = useRef();
+  const textRef4 = useRef();
   const bubbleRef = useRef();
 
   
@@ -76,9 +79,9 @@ function BluePantsMan() {
   
       // Compute the position for the speech bubble (apply the same smoothing)
       const bubbleTargetPosition = new THREE.Vector3(
-        radius * -Math.cos(angleRef.current + 0.125),
+        radius * -Math.cos(angleRef.current + 0.3),
         targetPosition.y + 20,
-        radius * -Math.sin(angleRef.current + 0.125)
+        radius * -Math.sin(angleRef.current + 0.3)
       );
   
       if (modelRef.current) {
@@ -87,14 +90,29 @@ function BluePantsMan() {
   
         // Lerp the speech bubble's position to prevent it from "leading"
         bubbleRef.current.position.lerp(bubbleTargetPosition, smoothingFactor);
-        textRef.current.position.lerp(
-          new THREE.Vector3(targetPosition.x, targetPosition.y + 15, targetPosition.z),
+        textRef1.current.position.lerp(
+          new THREE.Vector3(targetPosition.x, targetPosition.y + 13.2, targetPosition.z),
+          smoothingFactor
+        );
+        textRef2.current.position.lerp(
+          new THREE.Vector3(targetPosition.x, targetPosition.y + 12.5, targetPosition.z),
+          smoothingFactor
+        );
+        textRef3.current.position.lerp(
+          new THREE.Vector3(targetPosition.x, targetPosition.y + 12.7, targetPosition.z),
+          smoothingFactor
+        );
+        textRef4.current.position.lerp(
+          new THREE.Vector3(targetPosition.x, targetPosition.y + 12.7, targetPosition.z),
           smoothingFactor
         );
   
         // Ensure the speech bubble and text rotate correctly with the model
         bubbleRef.current.rotation.y = modelRef.current.rotation.y - Math.PI / 2;
-        textRef.current.rotation.y = modelRef.current.rotation.y - Math.PI / 2;
+        textRef1.current.rotation.y = modelRef.current.rotation.y - Math.PI / 2;
+        textRef2.current.rotation.y = modelRef.current.rotation.y - Math.PI / 2;
+        textRef3.current.rotation.y = modelRef.current.rotation.y - Math.PI / 2;
+        textRef4.current.rotation.y = modelRef.current.rotation.y - Math.PI / 2;
   
         // Adjust animation speed
         const speed = THREE.MathUtils.clamp(rotationDelta * 100, -10, 10);
@@ -136,16 +154,65 @@ function BluePantsMan() {
 
   return (
     <>
-      <Svg src={speechBubble} ref={bubbleRef} scale={0.15} position={[0, 0, 50]} visible={false}/>
+      {/* Speech Bubble SVG */}
+      <Svg src={speechBubble} ref={bubbleRef} scale={new THREE.Vector3(0.1, 0.05, 0.05)} position={[0, -1, 50]} visible={true}/>
+      
+      {/* Texts in bubble */}
       <Text
-        ref={textRef}
-        position={[0, 5, 50]} 
-        color={'white'}
+        ref={textRef1}
+        textAlign="center"
+        position={[0, 4, 50]} 
+        maxWidth={20}
+        color={'black'}
         anchorX={"center"}
         anchorY={"bottom"}
+        visible={(-0.5 < azimuthalAngle && azimuthalAngle < 0.5)}
       >
-        {/* Hello world */}
+        My journey as a software engineer began in New York City.
       </Text>
+      
+      <Text
+        ref={textRef2}
+        textAlign="center"
+        position={[0, 4, 50]} 
+        maxWidth={20}
+        color={'black'}
+        anchorX={"center"}
+        anchorY={"bottom"}
+        visible={(1 < azimuthalAngle && azimuthalAngle < 2)}
+      >
+        I attended The Bronx High School of Science, home to the most Nobel Piece Prize winners in the world!
+      </Text>
+      
+      <Text
+        ref={textRef3}
+        textAlign="center"
+        position={[0, 4, 50]} 
+        maxWidth={20}
+        color={'black'}
+        anchorX={"center"}
+        anchorY={"bottom"}
+        visible={(2.5 < azimuthalAngle || azimuthalAngle < -2.5)}
+      >
+        I then went to Queens College, where I studied Computer Science and built a strong foundation in theory.
+      </Text>
+      
+      <Text
+        ref={textRef4}
+        textAlign="center"
+        position={[0, 4, 50]} 
+        maxWidth={20}
+        color={'black'}
+        anchorX={"center"}
+        anchorY={"bottom"}
+        visible={(-2 < azimuthalAngle && azimuthalAngle < -1)}
+      >
+        I graduated with Dean's List Honors and built projects, including this website and those on my GitHub!   
+      </Text>
+
+
+
+      {/* BluePantsMan model */}
       <primitive
         ref={modelRef}
         object={bluePantsModel}
