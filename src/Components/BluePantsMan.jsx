@@ -5,7 +5,7 @@ import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { RotationContext, DarkmodeContext } from "../App";
 import { Svg, Text } from "@react-three/drei";
-import speechBubble from "/public/speech-bubble-svgrepo-com.svg"
+import speechBubble from "/speech-bubble-svgrepo-com.svg"
 
 
 function BluePantsMan() {
